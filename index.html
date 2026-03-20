@@ -8,371 +8,91 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
+
+    <!-- Fonts -->
+    <!-- fonts.googleapis.com - css for fonts -->
+    <!-- https://fonts.gstatic.com - font files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js"></script>
+
+    <!-- Custom Styles -->
+    <style type="text/tailwindcss">
+      @layer components {
+        .container {
+          @apply max-w-6xl mx-auto;
+        }
+        .btn {
+          @apply inline-flex items-center justify-center gap-2
+            font-semibold text-sm rounded-2xl px-6 py-3
+            text-text-primary mt-2 leading-[1.05]
+            hover:bg-accent hover:text-white;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <div>
-        <a href="#">Dream Booking</a>
-
-        <nav>
-          <a href="#">Home</a>
-          <a href="#">Rooms</a>
-          <a href="#">Destinations</a>
-          <a href="#">Contact</a>
-        </nav>
-
-        <div>
-          <button aria-label="Search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-          <button aria-label="User">
-            <i class="fa-regular fa-user"></i>
-          </button>
-          <a href="#">Book now</a>
-        </div>
-      </div>
-    </header>
+    <header></header>
 
     <main>
-      <section>
-        <div>
-          <div>
-            <h1>Book Your<br />Dream Room</h1>
-            <p>
-              Discover stylish rooms, cozy stays, and premium suites designed
-              for relaxing city breaks, romantic escapes, and unforgettable
-              travel experiences.
-            </p>
-            <a href="#">Explore rooms</a>
-          </div>
-
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
-              alt="Luxury hotel exterior"
-            />
-          </div>
-        </div>
-
-        <div>
-          <form>
-            <label>
-              <span>Destination</span>
-              <i class="fa-solid fa-location-dot"></i>
-            </label>
-
-            <label>
-              <span>Check in</span>
-              <i class="fa-regular fa-calendar"></i>
-            </label>
-
-            <label>
-              <span>Guests</span>
-              <i class="fa-solid fa-user-group"></i>
-            </label>
-
-            <button type="button">Search now</button>
-          </form>
+      <section class="bg-bg-base p-4">
+        <div class="container">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima
+          perferendis ex error sapiente ratione suscipit aut, aspernatur,
+          possimus aliquam deleniti enim quibusdam eaque laudantium ab nemo
+          omnis culpa iste animi, corporis doloribus magni obcaecati aperiam at?
+          Explicabo eum quod ut fugiat id quis ratione eveniet at provident.
+          Voluptatum odio voluptate, nulla voluptatem, aut quae accusamus
+          laboriosam illo exercitationem eius, alias laborum sequi. Eaque quos
+          incidunt cumque magnam, quas accusamus perspiciatis illum sit itaque
+          corporis eius maxime nihil quibusdam laborum! Quae aliquam assumenda
+          cupiditate labore deserunt, ratione similique non adipisci. Tempora
+          error officiis distinctio sint voluptatum officia sit mollitia veniam
+          exercitationem.
         </div>
       </section>
-
-      <section>
-        <div>
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80"
-              alt="Elegant hotel room interior"
-            />
-          </div>
-
-          <div>
-            <h2>We Help You Find<br />The Perfect Stay</h2>
-            <p>
-              From business-friendly rooms to boutique suites and weekend
-              getaway stays, Dream Booking makes it easy to compare, choose, and
-              reserve your next room with confidence.
-            </p>
-
-            <div>
-              <div>
-                <strong>12K+</strong>
-                <span>Rooms Available</span>
-              </div>
-              <div>
-                <strong>320+</strong>
-                <span>Cities Covered</span>
-              </div>
-              <div>
-                <strong>9K+</strong>
-                <span>Happy Guests</span>
-              </div>
-            </div>
-          </div>
+      <section class="bg-bg-alt p-4 shadow-card rounded-3xl">
+        <div class="container">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima
+          perferendis ex error sapiente ratione suscipit aut, aspernatur,
+          possimus aliquam deleniti enim quibusdam eaque laudantium ab nemo
+          omnis culpa iste animi, corporis doloribus magni obcaecati aperiam at?
+          Explicabo eum quod ut fugiat id quis ratione eveniet at provident.
+          Voluptatum odio voluptate, nulla voluptatem, aut quae accusamus
+          laboriosam illo exercitationem eius, alias laborum sequi. Eaque quos
+          incidunt cumque magnam, quas accusamus perspiciatis illum sit itaque
+          corporis eius maxime nihil quibusdam laborum! Quae aliquam assumenda
+          cupiditate labore deserunt, ratione similique non adipisci. Tempora
+          error officiis distinctio sint voluptatum officia sit mollitia veniam
+          exercitationem.
         </div>
       </section>
-
-      <section>
-        <div>
-          <h2>Why Choose Us</h2>
-          <p>
-            Making room booking easier with trusted listings, flexible choices,
-            and a seamless reservation experience from start to finish.
-          </p>
-
-          <div>
-            <article>
-              <div><i class="fa-solid fa-bed"></i></div>
-              <h3>Curated Rooms</h3>
-              <p>
-                Browse handpicked rooms and suites selected for comfort, style,
-                and value.
-              </p>
-            </article>
-
-            <article>
-              <div><i class="fa-solid fa-sliders"></i></div>
-              <h3>Flexible Options</h3>
-              <p>
-                Filter by budget, location, amenities, and guest needs in just a
-                few clicks.
-              </p>
-            </article>
-
-            <article>
-              <div><i class="fa-solid fa-shield-heart"></i></div>
-              <h3>Trusted Booking</h3>
-              <p>
-                Book with confidence through clear pricing, reliable listings,
-                and secure checkout.
-              </p>
-            </article>
-
-            <article>
-              <div><i class="fa-solid fa-headset"></i></div>
-              <h3>Guest Support</h3>
-              <p>
-                Our support team is ready to help before, during, and after your
-                stay.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div>
-          <h2>Popular Rooms & Suites</h2>
-
-          <div>
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=900&q=80"
-                alt="Ocean View Suite"
-              />
-              <div>
-                <h3>
-                  <i class="fa-solid fa-location-dot"></i>
-                  Ocean View Suite, Santorini
-                </h3>
-                <div>
-                  <span><i class="fa-regular fa-clipboard"></i> 2 Guests</span>
-                  <span><i class="fa-regular fa-square-full"></i> 42 m²</span>
-                </div>
-                <div>
-                  <a href="#">Reserve</a>
-                  <strong>$220/N</strong>
-                </div>
-              </div>
-            </article>
-
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80"
-                alt="City Deluxe Room"
-              />
-              <div>
-                <h3>
-                  <i class="fa-solid fa-location-dot"></i>
-                  City Deluxe Room, Dubai
-                </h3>
-                <div>
-                  <span><i class="fa-regular fa-clipboard"></i> 3 Guests</span>
-                  <span><i class="fa-regular fa-square-full"></i> 55 m²</span>
-                </div>
-                <div>
-                  <a href="#">Reserve</a>
-                  <strong>$310/N</strong>
-                </div>
-              </div>
-            </article>
-
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=900&q=80"
-                alt="Garden Junior Suite"
-              />
-              <div>
-                <h3>
-                  <i class="fa-solid fa-location-dot"></i>
-                  Garden Junior Suite, Bali
-                </h3>
-                <div>
-                  <span><i class="fa-regular fa-clipboard"></i> 2 Guests</span>
-                  <span><i class="fa-regular fa-square-full"></i> 48 m²</span>
-                </div>
-                <div>
-                  <a href="#">Reserve</a>
-                  <strong>$185/N</strong>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div>
-          <h2>What Guests Say<br />About Dream Booking</h2>
-
-          <div>
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=900&q=80"
-                alt="Boutique hotel lounge"
-              />
-              <div>
-                <div></div>
-                <div>
-                  <h3>Emma Carter</h3>
-                  <span>London</span>
-                </div>
-                <div><i class="fa-solid fa-star"></i> 5.0</div>
-              </div>
-              <p>
-                The whole booking process felt smooth and premium. I found a
-                beautiful room in minutes and everything matched the photos when
-                I arrived.
-              </p>
-            </article>
-
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80"
-                alt="Luxury hotel bedroom"
-              />
-              <div>
-                <div></div>
-                <div>
-                  <h3>Daniel Rivera</h3>
-                  <span>Madrid</span>
-                </div>
-                <div><i class="fa-solid fa-star"></i> 4.8</div>
-              </div>
-              <p>
-                I loved how easy it was to compare rooms by location and price.
-                Dream Booking made my weekend trip simple, fast, and
-                stress-free.
-              </p>
-            </article>
-
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1468824357306-a439d58ccb1c?auto=format&fit=crop&w=900&q=80"
-                alt="Resort bedroom with view"
-              />
-              <div>
-                <div></div>
-                <div>
-                  <h3>Sophia Malik</h3>
-                  <span>Berlin</span>
-                </div>
-                <div><i class="fa-solid fa-star"></i> 5.0</div>
-              </div>
-              <p>
-                The room recommendations were exactly my style. Clean design,
-                transparent prices, and a really nice selection of boutique
-                stays.
-              </p>
-            </article>
-          </div>
-
-          <div>
-            <button aria-label="Previous">
-              <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button aria-label="Next">
-              <i class="fa-solid fa-chevron-right"></i>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div>
-          <h2>Need Help With Your Booking?<br />We’re Here For You</h2>
-
-          <div>
-            <span>
-              <i class="fa-regular fa-circle-check"></i>
-              Chat with our travel support team
-            </span>
-            <span>
-              <i class="fa-regular fa-circle-check"></i>
-              Browse booking FAQs
-            </span>
-          </div>
-
-          <form>
-            <div>
-              <i class="fa-solid fa-envelope"></i>
-              <input type="email" placeholder="Enter your email address..." />
-            </div>
-            <button type="button">Subscribe</button>
-          </form>
+      <section class="bg-bg-dark p-4">
+        <div class="container">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima
+          perferendis ex error sapiente ratione suscipit aut, aspernatur,
+          possimus aliquam deleniti enim quibusdam eaque laudantium ab nemo
+          omnis culpa iste animi, corporis doloribus magni obcaecati aperiam at?
+          Explicabo eum quod ut fugiat id quis ratione eveniet at provident.
+          Voluptatum odio voluptate, nulla voluptatem, aut quae accusamus
+          laboriosam illo exercitationem eius, alias laborum sequi. Eaque quos
+          incidunt cumque magnam, quas accusamus perspiciatis illum sit itaque
+          corporis eius maxime nihil quibusdam laborum! Quae aliquam assumenda
+          cupiditate labore deserunt, ratione similique non adipisci. Tempora
+          error officiis distinctio sint voluptatum officia sit mollitia veniam
+          exercitationem.
         </div>
       </section>
     </main>
 
-    <footer>
-      <div>
-        <div>
-          <a href="#">Dream Booking</a>
-          <p>
-            Helping you reserve stylish rooms and unforgettable stays around the
-            world.
-          </p>
-        </div>
-
-        <div>
-          <h4>About</h4>
-          <a href="#">Our Story</a>
-          <a href="#">Careers</a>
-          <a href="#">Partners</a>
-          <a href="#">Travel Guide</a>
-        </div>
-
-        <div>
-          <h4>Support</h4>
-          <a href="#">FAQ</a>
-          <a href="#">Contact Us</a>
-          <a href="#">Help Center</a>
-          <a href="#">Booking Policy</a>
-        </div>
-
-        <div>
-          <h4>Explore</h4>
-          <a href="#">Cities</a>
-          <a href="#">Luxury Rooms</a>
-          <a href="#">Weekend Deals</a>
-        </div>
-
-        <div>
-          <h4>Our Social</h4>
-          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
-          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
-          <a href="#"><i class="fa-brands fa-x-twitter"></i> Twitter (x)</a>
-        </div>
-      </div>
-    </footer>
+    <footer></footer>
   </body>
 </html>
