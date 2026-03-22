@@ -32,9 +32,19 @@
         }
         .btn {
           @apply inline-flex items-center justify-center gap-2
-            font-semibold text-sm rounded-2xl px-6 py-3
-            text-text-primary mt-2 leading-[1.05]
-            hover:bg-accent hover:text-white;
+            font-semibold text-xl rounded-2xl px-8 py-4;
+        }
+        .btn-primary {
+          @apply btn text-surface shadow-soft bg-accent hover:bg-accent-dark hover:border-accent-dark;
+        }
+        .btn-outline {
+          @apply btn text-accent border border-accent hover:bg-accent-dark hover:text-white hover:border-accent-dark;
+        }
+        .search-box {
+          @apply flex gap-2 justify-start items-center rounded-2xl bg-surface p-4;
+        }
+        .search-input {
+          @apply w-full focus:outline-none bg-inherit text-text-primary placeholder-muted;
         }
       }
     </style>
@@ -43,52 +53,99 @@
     <header></header>
 
     <main>
-      <section class="bg-bg-base p-4">
+      <section class="hero bg-bg-base px-6 md:px-16 py-6">
         <div class="container">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima
-          perferendis ex error sapiente ratione suscipit aut, aspernatur,
-          possimus aliquam deleniti enim quibusdam eaque laudantium ab nemo
-          omnis culpa iste animi, corporis doloribus magni obcaecati aperiam at?
-          Explicabo eum quod ut fugiat id quis ratione eveniet at provident.
-          Voluptatum odio voluptate, nulla voluptatem, aut quae accusamus
-          laboriosam illo exercitationem eius, alias laborum sequi. Eaque quos
-          incidunt cumque magnam, quas accusamus perspiciatis illum sit itaque
-          corporis eius maxime nihil quibusdam laborum! Quae aliquam assumenda
-          cupiditate labore deserunt, ratione similique non adipisci. Tempora
-          error officiis distinctio sint voluptatum officia sit mollitia veniam
-          exercitationem.
-        </div>
-      </section>
-      <section class="bg-bg-alt p-4 shadow-card rounded-3xl">
-        <div class="container">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima
-          perferendis ex error sapiente ratione suscipit aut, aspernatur,
-          possimus aliquam deleniti enim quibusdam eaque laudantium ab nemo
-          omnis culpa iste animi, corporis doloribus magni obcaecati aperiam at?
-          Explicabo eum quod ut fugiat id quis ratione eveniet at provident.
-          Voluptatum odio voluptate, nulla voluptatem, aut quae accusamus
-          laboriosam illo exercitationem eius, alias laborum sequi. Eaque quos
-          incidunt cumque magnam, quas accusamus perspiciatis illum sit itaque
-          corporis eius maxime nihil quibusdam laborum! Quae aliquam assumenda
-          cupiditate labore deserunt, ratione similique non adipisci. Tempora
-          error officiis distinctio sint voluptatum officia sit mollitia veniam
-          exercitationem.
-        </div>
-      </section>
-      <section class="bg-bg-dark p-4">
-        <div class="container">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima
-          perferendis ex error sapiente ratione suscipit aut, aspernatur,
-          possimus aliquam deleniti enim quibusdam eaque laudantium ab nemo
-          omnis culpa iste animi, corporis doloribus magni obcaecati aperiam at?
-          Explicabo eum quod ut fugiat id quis ratione eveniet at provident.
-          Voluptatum odio voluptate, nulla voluptatem, aut quae accusamus
-          laboriosam illo exercitationem eius, alias laborum sequi. Eaque quos
-          incidunt cumque magnam, quas accusamus perspiciatis illum sit itaque
-          corporis eius maxime nihil quibusdam laborum! Quae aliquam assumenda
-          cupiditate labore deserunt, ratione similique non adipisci. Tempora
-          error officiis distinctio sint voluptatum officia sit mollitia veniam
-          exercitationem.
+          <div
+            class="flex flex-col lg:flex-row justify-center gap-5 items-center"
+          >
+            <div
+              class="flex flex-1 flex-col justify-center gap-5 items-center lg:items-start"
+            >
+              <p
+                class="w-fit bg-accent-light rounded-3xl text-accent-dark border border-accent-dark text-base font-semibold py-2 px-4"
+              >
+                🏆 Voted #1 Resort Platform 2024
+              </p>
+              <h1
+                class="text-text-primary w-full text-center lg:text-start text-[10vw] lg:text-7xl font-black leading-none font-heading"
+              >
+                Find Your<br />Perfect
+                <span class="italic text-accent">Escape</span>
+              </h1>
+              <p class="text-text-body text-xl md:text-2xl text-justify">
+                Hand-picked luxury resorts, boutique villas and hidden gems -
+                booked in minutes, remembered forever.
+              </p>
+              <div class="flex flex-wrap justify-center lg:justify-start gap-5">
+                <a href="#" class="btn-primary"
+                  >Browse Resorts
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#" class="btn-outline">How it works </a>
+              </div>
+            </div>
+            <div class="flex-1 relative p-5">
+              <img
+                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
+                alt="Luxury hotel exterior"
+                class="rounded-3xl w-full h-auto aspect-[4/3] lg:aspect-square object-cover shadow-soft"
+              />
+              <div
+                class="absolute bottom-0 left-0 bg-surface inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 shadow-card"
+              >
+                <p class="text-3xl">🏖️</p>
+                <p class="text-text-primary text-base font-semibold">
+                  500+ Destinations<br /><span
+                    class="text-sm font-light text-muted"
+                    >Worldwide resorts</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-10">
+            <form
+              action="#"
+              class="grid grid-cols-1 md:grid-cols-11 gap-5 items-center bg-sand-200 p-5 rounded-2xl shadow-soft"
+            >
+              <div class="search-box col-span-3">
+                <label for="destination">📍</label>
+                <input
+                  type="text"
+                  name="destination"
+                  id="destination"
+                  placeholder="Destination"
+                  class="search-input"
+                />
+              </div>
+              <div class="search-box col-span-3">
+                <label for="resort-type">🏠</label>
+                <input
+                  type="text"
+                  name="resort-type"
+                  id="resort-type"
+                  placeholder="Resort Type"
+                  class="search-input"
+                />
+              </div>
+              <div class="search-box col-span-3">
+                <label for="price-range">💰</label>
+                <input
+                  type="text"
+                  name="price-range"
+                  id="price-range"
+                  placeholder="Price Range"
+                  class="search-input"
+                />
+              </div>
+              <button
+                type="submit"
+                class="col-span-2 flex justify-center items-center text-surface text-xl font-semibold"
+              >
+                Search
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </main>
