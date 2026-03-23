@@ -84,11 +84,17 @@ tailwind.config = {
           "0%": { opacity: "0", transform: "translateX(100%)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
+        jump: {
+          "0%": { transform: "translateY(0) rotateY(0)" },
+          "50%": { transform: "translateY(-30px) rotateY(360deg)" },
+          "100%": { transform: "translateY(0) rotateY(0)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease both",
         "fade-in": "fade-in 0.4s ease both",
         "slide-in": "slide-in 0.35s cubic-bezier(0.16,1,0.3,1) both",
+        jump: "jump 1.5s ease-in-out infinite",
       },
     },
   },
