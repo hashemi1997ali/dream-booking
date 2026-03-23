@@ -8,370 +8,402 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-  </head>
-  <body>
-    <header>
-      <div>
-        <a href="#">Dream Booking</a>
 
-        <nav>
-          <a href="#">Home</a>
-          <a href="#">Rooms</a>
-          <a href="#">Destinations</a>
-          <a href="#">Contact</a>
+    <!-- Fonts -->
+    <!-- fonts.googleapis.com - css for fonts -->
+    <!-- https://fonts.gstatic.com - font files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js"></script>
+
+    <!-- Custom Styles -->
+    <style type="text/tailwindcss">
+      @layer components {
+        .container {
+          @apply max-w-6xl mx-auto px-4;
+        }
+        /* Button styles */
+        .btn {
+          @apply inline-flex items-center justify-center gap-2
+            font-semibold text-xl rounded-2xl px-8 py-4 transition-colors duration-300;
+        }
+        .btn-primary {
+          @apply btn text-surface shadow-soft bg-accent hover:bg-accent-dark hover:border-accent-dark;
+        }
+        .btn-outline {
+          @apply btn text-accent border border-accent hover:bg-accent-dark hover:text-white hover:border-accent-dark;
+        }
+        .btn-ghost {
+          @apply btn text-text-body rounded-xl
+           hover:bg-sand-200 hover:text-text-primary;
+        }
+        /* Box styles */
+        .box {
+          @apply flex rounded-2xl bg-surface;
+        }
+        .search-box {
+          @apply box flex-row gap-2 justify-center items-center p-4;
+        }
+        .search-input {
+          @apply w-full text-base focus:outline-none bg-inherit text-text-primary placeholder-muted;
+        }
+        .search-logo {
+          @apply text-2xl;
+        }
+        /* Features box styles */
+        .features-box {
+          @apply box flex-col gap-3 justify-start items-start p-7 shadow-soft transition duration-150 hover:-translate-y-1 hover:shadow-card;
+        }
+        .features-logo {
+          @apply text-2xl rounded-2xl bg-accent-light p-3 shadow-soft group-hover:bg-accent;
+        }
+        .features-title {
+          @apply text-text-primary text-base font-semibold;
+        }
+        .features-text {
+          @apply text-muted text-sm font-semibold;
+        }
+        .reviews-box {
+          @apply box flex-col gap-3 justify-start items-start p-7 shadow-soft transition duration-150 hover:-translate-y-1 hover:shadow-card;
+        }
+        .reviews-photo {
+          @apply w-16 h-16 object-cover bg-contain rounded-full bg-accent-light shadow-soft;
+        }
+        .reviews-card {
+          @apply flex gap-2 justify-start items-center;
+        }
+        .reviews-name {
+          @apply text-text-primary text-base font-semibold;
+        }
+        .reviews-score {
+          @apply text-muted text-xs font-semibold;
+        }
+        .reviews-text {
+          @apply text-text-body italic text-sm font-semibold;
+        }
+
+        /* Mobile nav */
+        .mob-nav {
+          @apply absolute top-0 right-0 h-[100vh] w-52 transition-all duration-300 translate-x-full z-10;
+        }
+        .btn-humburger:focus + .mob-nav {
+          @apply translate-x-0;
+        }
+        .mob-actions::before {
+          @apply content-[''] absolute top-0 left-0 w-full h-[100vh] bg-black/50 pointer-events-none transition-all duration-300 z-[1] translate-x-full;
+        }
+        .mob-actions:has(.btn-humburger:focus)::before {
+          @apply translate-x-0;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="font-sans bg-bg-base text-text-body overflow-x-hidden flex flex-col min-h-screen"
+  >
+    <header
+      class="sticky top-0 z-50 bg-bg-base/80 backdrop-blur-md border-b border-border/30"
+    >
+      <div class="container py-4 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2.5 group">
+          <div
+            class="w-8 h-8 bg-accent rounded-xl flex items-center justify-center shadow-soft group-hover:scale-110 transition-transform duration-200"
+          >
+            <span class="text-white text-sm font-bold font-heading">D</span>
+          </div>
+          <span class="font-heading text-xl font-bold text-text-primary">
+            Dream<span class="text-accent">Booking</span>
+          </span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-1">
+          <a href="#home" class="btn-ghost text-sm px-4 py-2">Home</a>
+          <a href="#about" class="btn-ghost text-sm px-4 py-2">About</a>
+          <a href="#resorts" class="btn-ghost text-sm px-4 py-2">Resorts</a>
+          <a href="#contact" class="btn-ghost text-sm px-4 py-2">Contact</a>
         </nav>
 
-        <div>
-          <button aria-label="Search">
-            <i class="fa-solid fa-magnifying-glass"></i>
+        <div class="flex items-center gap-3">
+          <a href="#" class="hidden md:inline-flex btn-ghost text-sm px-4 py-2"
+            >Log in</a
+          >
+          <a href="#" class="hidden md:inline-flex btn-primary text-sm"
+            >Sign up free</a
+          >
+        </div>
+
+        <div class="mob-actions md:hidden">
+          <!-- Hamburger -->
+          <button
+            class="btn-humburger w-10 h-10 flex flex-col items-center justify-center gap-1.5 btn-ghost p-0"
+          >
+            <span
+              class="w-5 h-0.5 bg-text-primary rounded-full block transition-all duration-300 origin-center"
+            ></span>
+            <span
+              class="w-5 h-0.5 bg-text-primary rounded-full block transition-all duration-300"
+            ></span>
+            <span
+              class="w-5 h-0.5 bg-text-primary rounded-full block transition-all duration-300 origin-center"
+            ></span>
           </button>
-          <button aria-label="User">
-            <i class="fa-regular fa-user"></i>
-          </button>
-          <a href="#">Book now</a>
+
+          <!-- Mobile nav -->
+          <nav
+            class="mob-nav flex flex-col gap-1 px-6 pb-5 pt-2 bg-bg-base border-t border-border/30"
+          >
+            <a
+              href="#home"
+              class="py-3 font-medium border-b border-border/30 hover:text-accent transition-colors"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="py-3 font-medium border-b border-border/30 hover:text-accent transition-colors"
+              >About</a
+            >
+            <a
+              href="#resorts"
+              class="py-3 font-medium border-b border-border/30 hover:text-accent transition-colors"
+              >Resorts</a
+            >
+            <a
+              href="#contact"
+              class="py-3 font-medium mb-3 hover:text-accent transition-colors"
+              >Contact</a
+            >
+            <a href="#" class="btn-primary text-center text-sm">Sign up free</a>
+          </nav>
         </div>
       </div>
     </header>
 
-    <main>
-      <section>
-        <div>
-          <div>
-            <h1>Book Your<br />Dream Room</h1>
-            <p>
-              Discover stylish rooms, cozy stays, and premium suites designed
-              for relaxing city breaks, romantic escapes, and unforgettable
-              travel experiences.
-            </p>
-            <a href="#">Explore rooms</a>
+    <main class="flex-1">
+      <section class="hero bg-bg-base px-6 md:px-16 py-6">
+        <div class="container">
+          <div
+            class="flex flex-col lg:flex-row justify-center gap-5 items-center"
+          >
+            <div
+              class="flex flex-1 flex-col justify-center gap-5 items-center lg:items-start"
+            >
+              <p
+                class="bg-accent-light rounded-3xl text-accent-dark border border-accent-dark text-base font-semibold py-2 px-4"
+              >
+                🏆 Voted #1 Resort Platform 2024
+              </p>
+              <h1
+                class="text-text-primary w-full text-center lg:text-start text-[10vw] lg:text-7xl font-black leading-none font-heading"
+              >
+                Find Your<br />Perfect
+                <span class="italic text-accent">Escape</span>
+              </h1>
+              <p class="text-text-body text-xl md:text-2xl">
+                Hand-picked luxury resorts, boutique villas and hidden gems -
+                booked in minutes, remembered forever.
+              </p>
+              <div class="flex flex-wrap justify-center lg:justify-start gap-5">
+                <a href="#" class="btn-primary"
+                  >Browse Resorts
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#" class="btn-outline">How it works </a>
+              </div>
+            </div>
+            <div class="flex-1 relative p-5 pr-0">
+              <img
+                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
+                alt="Luxury hotel exterior"
+                class="rounded-3xl w-full h-auto aspect-[4/3] lg:aspect-square object-cover shadow-soft"
+              />
+              <div
+                class="absolute bottom-0 left-0 bg-surface inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 shadow-card"
+              >
+                <p class="text-5xl">🏖️</p>
+                <p class="text-text-primary text-base font-semibold">
+                  500+ Destinations<br /><span
+                    class="text-sm font-light text-muted"
+                    >Worldwide resorts</span
+                  >
+                </p>
+              </div>
+            </div>
           </div>
-
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
-              alt="Luxury hotel exterior"
-            />
+          <div class="mt-10">
+            <form
+              action="#"
+              class="grid grid-cols-1 md:grid-cols-11 gap-5 bg-sand-200 p-5 rounded-2xl shadow-soft"
+            >
+              <div class="search-box md:col-span-3">
+                <label for="destination" class="search-logo">📍</label>
+                <input
+                  type="text"
+                  name="destination"
+                  id="destination"
+                  placeholder="Destination"
+                  class="search-input"
+                />
+              </div>
+              <div class="search-box md:col-span-3">
+                <label for="resort-type" class="search-logo">🏠</label>
+                <input
+                  type="text"
+                  name="resort-type"
+                  id="resort-type"
+                  placeholder="Resort Type"
+                  class="search-input"
+                />
+              </div>
+              <div class="search-box md:col-span-3">
+                <label for="price-range" class="search-logo">💰</label>
+                <input
+                  type="text"
+                  name="price-range"
+                  id="price-range"
+                  placeholder="Price Range"
+                  class="search-input"
+                />
+              </div>
+              <button
+                type="submit"
+                class="md:col-span-2 flex justify-center items-center text-surface text-xl font-semibold"
+              >
+                Search
+              </button>
+            </form>
           </div>
-        </div>
-
-        <div>
-          <form>
-            <label>
-              <span>Destination</span>
-              <i class="fa-solid fa-location-dot"></i>
-            </label>
-
-            <label>
-              <span>Check in</span>
-              <i class="fa-regular fa-calendar"></i>
-            </label>
-
-            <label>
-              <span>Guests</span>
-              <i class="fa-solid fa-user-group"></i>
-            </label>
-
-            <button type="button">Search now</button>
-          </form>
         </div>
       </section>
-
-      <section>
-        <div>
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80"
-              alt="Elegant hotel room interior"
-            />
-          </div>
-
-          <div>
-            <h2>We Help You Find<br />The Perfect Stay</h2>
-            <p>
-              From business-friendly rooms to boutique suites and weekend
-              getaway stays, Dream Booking makes it easy to compare, choose, and
-              reserve your next room with confidence.
+      <section class="features bg-bg-alt px-6 md:px-16 py-28">
+        <div class="container">
+          <div class="flex flex-col justify-center gap-5 items-center">
+            <p class="text-accent text-base font-semibold">WHY US</p>
+            <h2
+              class="text-text-primary w-full text-center text-[6vw] lg:text-7xl font-black leading-none font-heading"
+            >
+              The Dream Booking Difference
+            </h2>
+            <p class="text-text-body text-xl md:text-2xl text-center max-w-2xl">
+              We go beyond listing - we curate, verify, and support every
+              booking from first search to final checkout.
             </p>
-
-            <div>
-              <div>
-                <strong>12K+</strong>
-                <span>Rooms Available</span>
-              </div>
-              <div>
-                <strong>320+</strong>
-                <span>Cities Covered</span>
-              </div>
-              <div>
-                <strong>9K+</strong>
-                <span>Happy Guests</span>
-              </div>
+          </div>
+          <div class="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="group features-box">
+              <p class="features-logo">🧭</p>
+              <h3 class="features-title">Expert Curation</h3>
+              <p class="features-text">
+                Every resort is hand-vetted by our travel speciallist before it
+                goes live.
+              </p>
+            </div>
+            <div class="group features-box">
+              <p class="features-logo">💵</p>
+              <h3 class="features-title">No Hidden Fees</h3>
+              <p class="features-text">
+                The price you see is the price you pay. Zero booking charges.
+              </p>
+            </div>
+            <div class="group features-box">
+              <p class="features-logo">⚡</p>
+              <h3 class="features-title">Instant Confirmation</h3>
+              <p class="features-text">
+                Book and receive your confirmation email in under 60 seconds.
+              </p>
+            </div>
+            <div class="group features-box">
+              <p class="features-logo">💬</p>
+              <h3 class="features-title">24/7 Support</h3>
+              <p class="features-text">
+                Real humans, round the clock. We're here whenever you need us.
+              </p>
             </div>
           </div>
         </div>
       </section>
-
-      <section>
-        <div>
-          <h2>Why Choose Us</h2>
-          <p>
-            Making room booking easier with trusted listings, flexible choices,
-            and a seamless reservation experience from start to finish.
-          </p>
-
-          <div>
-            <article>
-              <div><i class="fa-solid fa-bed"></i></div>
-              <h3>Curated Rooms</h3>
-              <p>
-                Browse handpicked rooms and suites selected for comfort, style,
-                and value.
-              </p>
-            </article>
-
-            <article>
-              <div><i class="fa-solid fa-sliders"></i></div>
-              <h3>Flexible Options</h3>
-              <p>
-                Filter by budget, location, amenities, and guest needs in just a
-                few clicks.
-              </p>
-            </article>
-
-            <article>
-              <div><i class="fa-solid fa-shield-heart"></i></div>
-              <h3>Trusted Booking</h3>
-              <p>
-                Book with confidence through clear pricing, reliable listings,
-                and secure checkout.
-              </p>
-            </article>
-
-            <article>
-              <div><i class="fa-solid fa-headset"></i></div>
-              <h3>Guest Support</h3>
-              <p>
-                Our support team is ready to help before, during, and after your
-                stay.
-              </p>
-            </article>
+      <section class="reviews bg-bg-alt px-6 md:px-16 py-28">
+        <div class="container">
+          <div class="flex flex-col justify-center gap-5 items-center">
+            <p class="text-accent text-base font-semibold">REVIEWS</p>
+            <h2
+              class="text-text-primary w-full text-center text-[7vw] lg:text-7xl font-black leading-none font-heading"
+            >
+              Travellers Love Us
+            </h2>
           </div>
-        </div>
-      </section>
-
-      <section>
-        <div>
-          <h2>Popular Rooms & Suites</h2>
-
-          <div>
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=900&q=80"
-                alt="Ocean View Suite"
-              />
-              <div>
-                <h3>
-                  <i class="fa-solid fa-location-dot"></i>
-                  Ocean View Suite, Santorini
-                </h3>
+          <div class="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5">
+            <div class="reviews-box">
+              <div class="reviews-card">
+                <img
+                  src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ="
+                  alt="Sarah Nguyen"
+                  class="reviews-photo"
+                />
                 <div>
-                  <span><i class="fa-regular fa-clipboard"></i> 2 Guests</span>
-                  <span><i class="fa-regular fa-square-full"></i> 42 m²</span>
-                </div>
-                <div>
-                  <a href="#">Reserve</a>
-                  <strong>$220/N</strong>
+                  <h3 class="reviews-name">Sarah Nguyen</h3>
+                  <p class="reviews-score">San Francisco . ⭐⭐⭐⭐⭐</p>
                 </div>
               </div>
-            </article>
-
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80"
-                alt="City Deluxe Room"
-              />
-              <div>
-                <h3>
-                  <i class="fa-solid fa-location-dot"></i>
-                  City Deluxe Room, Dubai
-                </h3>
-                <div>
-                  <span><i class="fa-regular fa-clipboard"></i> 3 Guests</span>
-                  <span><i class="fa-regular fa-square-full"></i> 55 m²</span>
-                </div>
-                <div>
-                  <a href="#">Reserve</a>
-                  <strong>$310/N</strong>
-                </div>
-              </div>
-            </article>
-
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=900&q=80"
-                alt="Garden Junior Suite"
-              />
-              <div>
-                <h3>
-                  <i class="fa-solid fa-location-dot"></i>
-                  Garden Junior Suite, Bali
-                </h3>
-                <div>
-                  <span><i class="fa-regular fa-clipboard"></i> 2 Guests</span>
-                  <span><i class="fa-regular fa-square-full"></i> 48 m²</span>
-                </div>
-                <div>
-                  <a href="#">Reserve</a>
-                  <strong>$185/N</strong>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div>
-          <h2>What Guests Say<br />About Dream Booking</h2>
-
-          <div>
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=900&q=80"
-                alt="Boutique hotel lounge"
-              />
-              <div>
-                <div></div>
-                <div>
-                  <h3>Emma Carter</h3>
-                  <span>London</span>
-                </div>
-                <div><i class="fa-solid fa-star"></i> 5.0</div>
-              </div>
-              <p>
-                The whole booking process felt smooth and premium. I found a
-                beautiful room in minutes and everything matched the photos when
-                I arrived.
+              <p class="reviews-text">
+                "Dream Booking found us the most incredible overwater bungalow
+                in the Maldives. From search to check-in absolutely flawless."
               </p>
-            </article>
-
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80"
-                alt="Luxury hotel bedroom"
-              />
-              <div>
-                <div></div>
-                <div>
-                  <h3>Daniel Rivera</h3>
-                  <span>Madrid</span>
-                </div>
-                <div><i class="fa-solid fa-star"></i> 4.8</div>
-              </div>
-              <p>
-                I loved how easy it was to compare rooms by location and price.
-                Dream Booking made my weekend trip simple, fast, and
-                stress-free.
-              </p>
-            </article>
-
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1468824357306-a439d58ccb1c?auto=format&fit=crop&w=900&q=80"
-                alt="Resort bedroom with view"
-              />
-              <div>
-                <div></div>
-                <div>
-                  <h3>Sophia Malik</h3>
-                  <span>Berlin</span>
-                </div>
-                <div><i class="fa-solid fa-star"></i> 5.0</div>
-              </div>
-              <p>
-                The room recommendations were exactly my style. Clean design,
-                transparent prices, and a really nice selection of boutique
-                stays.
-              </p>
-            </article>
-          </div>
-
-          <div>
-            <button aria-label="Previous">
-              <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button aria-label="Next">
-              <i class="fa-solid fa-chevron-right"></i>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div>
-          <h2>Need Help With Your Booking?<br />We’re Here For You</h2>
-
-          <div>
-            <span>
-              <i class="fa-regular fa-circle-check"></i>
-              Chat with our travel support team
-            </span>
-            <span>
-              <i class="fa-regular fa-circle-check"></i>
-              Browse booking FAQs
-            </span>
-          </div>
-
-          <form>
-            <div>
-              <i class="fa-solid fa-envelope"></i>
-              <input type="email" placeholder="Enter your email address..." />
             </div>
-            <button type="button">Subscribe</button>
-          </form>
+            <div class="reviews-box">
+              <div class="reviews-card">
+                <img
+                  src="https://images.unsplash.com/photo-1654110455429-cf322b40a906?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D"
+                  alt="Michael Rodriguez"
+                  class="reviews-photo"
+                />
+                <div>
+                  <h3 class="reviews-name">Michael Rodriguez</h3>
+                  <p class="reviews-score">San Diego . ⭐⭐⭐⭐½</p>
+                </div>
+              </div>
+              <p class="reviews-text">
+                "Booked out Bali villa in 10 minutes. Transparent pricing,
+                instant confirmation, property matched every photo. Brilliant
+                service."
+              </p>
+            </div>
+            <div class="reviews-box">
+              <div class="reviews-card">
+                <img
+                  src="https://img.freepik.com/free-photo/smiley-woman-outdoors-city_23-2148774316.jpg?semt=ais_hybrid&w=740&q=80"
+                  alt="Emily Johnson"
+                  class="reviews-photo"
+                />
+                <div>
+                  <h3 class="reviews-name">Emily Johnson</h3>
+                  <p class="reviews-score">Los Angeles . ⭐⭐⭐⭐⭐</p>
+                </div>
+              </div>
+              <p class="reviews-text">
+                "Our Santorini honeymoon was perfect. The team helped us pick
+                the best room for sunset views. Worth every single penny!"
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer>
-      <div>
-        <div>
-          <a href="#">Dream Booking</a>
-          <p>
-            Helping you reserve stylish rooms and unforgettable stays around the
-            world.
-          </p>
-        </div>
-
-        <div>
-          <h4>About</h4>
-          <a href="#">Our Story</a>
-          <a href="#">Careers</a>
-          <a href="#">Partners</a>
-          <a href="#">Travel Guide</a>
-        </div>
-
-        <div>
-          <h4>Support</h4>
-          <a href="#">FAQ</a>
-          <a href="#">Contact Us</a>
-          <a href="#">Help Center</a>
-          <a href="#">Booking Policy</a>
-        </div>
-
-        <div>
-          <h4>Explore</h4>
-          <a href="#">Cities</a>
-          <a href="#">Luxury Rooms</a>
-          <a href="#">Weekend Deals</a>
-        </div>
-
-        <div>
-          <h4>Our Social</h4>
-          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
-          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
-          <a href="#"><i class="fa-brands fa-x-twitter"></i> Twitter (x)</a>
-        </div>
+    <footer class="border-t border-border/30 py-10 h-20">
+      <div class="container">
+        <p class="text-text-muted text-center">
+          &copy; 2023 Dream Booking. All rights reserved.
+        </p>
       </div>
     </footer>
   </body>
