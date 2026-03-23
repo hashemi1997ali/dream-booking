@@ -30,6 +30,7 @@
         .container {
           @apply max-w-6xl mx-auto px-4;
         }
+        /* Button styles */
         .btn {
           @apply inline-flex items-center justify-center gap-2
             font-semibold text-xl rounded-2xl px-8 py-4 transition-colors duration-300;
@@ -44,11 +45,49 @@
           @apply btn text-text-body rounded-xl
            hover:bg-sand-200 hover:text-text-primary;
         }
+        /* Box styles */
+        .box {
+          @apply flex rounded-2xl bg-surface;
+        }
         .search-box {
-          @apply flex gap-2 justify-start items-center rounded-2xl bg-surface p-4;
+          @apply box flex-row gap-2 justify-center items-center p-4;
         }
         .search-input {
-          @apply w-full focus:outline-none bg-inherit text-text-primary placeholder-muted;
+          @apply w-full text-base focus:outline-none bg-inherit text-text-primary placeholder-muted;
+        }
+        .search-logo {
+          @apply text-2xl;
+        }
+        /* Features box styles */
+        .features-box {
+          @apply box flex-col gap-3 justify-start items-start p-7 shadow-soft transition duration-150 hover:-translate-y-1 hover:shadow-card;
+        }
+        .features-logo {
+          @apply text-2xl rounded-2xl bg-accent-light p-3 shadow-soft group-hover:bg-accent;
+        }
+        .features-title {
+          @apply text-text-primary text-base font-semibold;
+        }
+        .features-text {
+          @apply text-muted text-sm font-semibold;
+        }
+        .reviews-box {
+          @apply box flex-col gap-3 justify-start items-start p-7 shadow-soft transition duration-150 hover:-translate-y-1 hover:shadow-card;
+        }
+        .reviews-photo {
+          @apply w-16 h-16 object-cover bg-contain rounded-full bg-accent-light shadow-soft;
+        }
+        .reviews-card {
+          @apply flex gap-2 justify-start items-center;
+        }
+        .reviews-name {
+          @apply text-text-primary text-base font-semibold;
+        }
+        .reviews-score {
+          @apply text-muted text-xs font-semibold;
+        }
+        .reviews-text {
+          @apply text-text-body italic text-sm font-semibold;
         }
 
         /* Mobile nav */
@@ -159,7 +198,7 @@
               class="flex flex-1 flex-col justify-center gap-5 items-center lg:items-start"
             >
               <p
-                class="w-fit bg-accent-light rounded-3xl text-accent-dark border border-accent-dark text-base font-semibold py-2 px-4"
+                class="bg-accent-light rounded-3xl text-accent-dark border border-accent-dark text-base font-semibold py-2 px-4"
               >
                 🏆 Voted #1 Resort Platform 2024
               </p>
@@ -169,7 +208,7 @@
                 Find Your<br />Perfect
                 <span class="italic text-accent">Escape</span>
               </h1>
-              <p class="text-text-body text-xl md:text-2xl text-justify">
+              <p class="text-text-body text-xl md:text-2xl">
                 Hand-picked luxury resorts, boutique villas and hidden gems -
                 booked in minutes, remembered forever.
               </p>
@@ -190,7 +229,7 @@
               <div
                 class="absolute bottom-0 left-0 bg-surface inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 shadow-card"
               >
-                <p class="text-3xl">🏖️</p>
+                <p class="text-5xl">🏖️</p>
                 <p class="text-text-primary text-base font-semibold">
                   500+ Destinations<br /><span
                     class="text-sm font-light text-muted"
@@ -203,10 +242,10 @@
           <div class="mt-10">
             <form
               action="#"
-              class="grid grid-cols-1 md:grid-cols-11 gap-5 items-center bg-sand-200 p-5 rounded-2xl shadow-soft"
+              class="grid grid-cols-1 md:grid-cols-11 gap-5 bg-sand-200 p-5 rounded-2xl shadow-soft"
             >
-              <div class="search-box col-span-3">
-                <label for="destination">📍</label>
+              <div class="search-box md:col-span-3">
+                <label for="destination" class="search-logo">📍</label>
                 <input
                   type="text"
                   name="destination"
@@ -215,8 +254,8 @@
                   class="search-input"
                 />
               </div>
-              <div class="search-box col-span-3">
-                <label for="resort-type">🏠</label>
+              <div class="search-box md:col-span-3">
+                <label for="resort-type" class="search-logo">🏠</label>
                 <input
                   type="text"
                   name="resort-type"
@@ -225,8 +264,8 @@
                   class="search-input"
                 />
               </div>
-              <div class="search-box col-span-3">
-                <label for="price-range">💰</label>
+              <div class="search-box md:col-span-3">
+                <label for="price-range" class="search-logo">💰</label>
                 <input
                   type="text"
                   name="price-range"
@@ -237,11 +276,124 @@
               </div>
               <button
                 type="submit"
-                class="col-span-2 flex justify-center items-center text-surface text-xl font-semibold"
+                class="md:col-span-2 flex justify-center items-center text-surface text-xl font-semibold"
               >
                 Search
               </button>
             </form>
+          </div>
+        </div>
+      </section>
+      <section class="features bg-bg-alt px-6 md:px-16 py-28">
+        <div class="container">
+          <div class="flex flex-col justify-center gap-5 items-center">
+            <p class="text-accent text-base font-semibold">WHY US</p>
+            <h2
+              class="text-text-primary w-full text-center text-[6vw] lg:text-7xl font-black leading-none font-heading"
+            >
+              The Dream Booking Difference
+            </h2>
+            <p class="text-text-body text-xl md:text-2xl text-center max-w-2xl">
+              We go beyond listing - we curate, verify, and support every
+              booking from first search to final checkout.
+            </p>
+          </div>
+          <div class="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="group features-box">
+              <p class="features-logo">🧭</p>
+              <h3 class="features-title">Expert Curation</h3>
+              <p class="features-text">
+                Every resort is hand-vetted by our travel speciallist before it
+                goes live.
+              </p>
+            </div>
+            <div class="group features-box">
+              <p class="features-logo">💵</p>
+              <h3 class="features-title">No Hidden Fees</h3>
+              <p class="features-text">
+                The price you see is the price you pay. Zero booking charges.
+              </p>
+            </div>
+            <div class="group features-box">
+              <p class="features-logo">⚡</p>
+              <h3 class="features-title">Instant Confirmation</h3>
+              <p class="features-text">
+                Book and receive your confirmation email in under 60 seconds.
+              </p>
+            </div>
+            <div class="group features-box">
+              <p class="features-logo">💬</p>
+              <h3 class="features-title">24/7 Support</h3>
+              <p class="features-text">
+                Real humans, round the clock. We're here whenever you need us.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="reviews bg-bg-alt px-6 md:px-16 py-28">
+        <div class="container">
+          <div class="flex flex-col justify-center gap-5 items-center">
+            <p class="text-accent text-base font-semibold">REVIEWS</p>
+            <h2
+              class="text-text-primary w-full text-center text-[7vw] lg:text-7xl font-black leading-none font-heading"
+            >
+              Travellers Love Us
+            </h2>
+          </div>
+          <div class="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5">
+            <div class="reviews-box">
+              <div class="reviews-card">
+                <img
+                  src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ="
+                  alt="Sarah Nguyen"
+                  class="reviews-photo"
+                />
+                <div>
+                  <h3 class="reviews-name">Sarah Nguyen</h3>
+                  <p class="reviews-score">San Francisco . ⭐⭐⭐⭐⭐</p>
+                </div>
+              </div>
+              <p class="reviews-text">
+                "Dream Booking found us the most incredible overwater bungalow
+                in the Maldives. From search to check-in absolutely flawless."
+              </p>
+            </div>
+            <div class="reviews-box">
+              <div class="reviews-card">
+                <img
+                  src="https://images.unsplash.com/photo-1654110455429-cf322b40a906?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D"
+                  alt="Michael Rodriguez"
+                  class="reviews-photo"
+                />
+                <div>
+                  <h3 class="reviews-name">Michael Rodriguez</h3>
+                  <p class="reviews-score">San Diego . ⭐⭐⭐⭐½</p>
+                </div>
+              </div>
+              <p class="reviews-text">
+                "Booked out Bali villa in 10 minutes. Transparent pricing,
+                instant confirmation, property matched every photo. Brilliant
+                service."
+              </p>
+            </div>
+            <div class="reviews-box">
+              <div class="reviews-card">
+                <img
+                  src="https://img.freepik.com/free-photo/smiley-woman-outdoors-city_23-2148774316.jpg?semt=ais_hybrid&w=740&q=80"
+                  alt="Emily Johnson"
+                  class="reviews-photo"
+                />
+                <div>
+                  <h3 class="reviews-name">Emily Johnson</h3>
+                  <p class="reviews-score">Los Angeles . ⭐⭐⭐⭐⭐</p>
+                </div>
+              </div>
+              <p class="reviews-text">
+                "Our Santorini honeymoon was perfect. The team helped us pick
+                the best room for sunset views. Worth every single penny!"
+              </p>
+            </div>
           </div>
         </div>
       </section>
