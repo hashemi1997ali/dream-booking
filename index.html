@@ -60,7 +60,7 @@
         }
         /* Features box styles */
         .features-box {
-          @apply box flex-col gap-3 justify-start items-start p-7 shadow-soft transition duration-150 hover:-translate-y-1 hover:shadow-card;
+          @apply box flex-col gap-3 justify-start items-start p-7 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-card;
         }
         .features-logo {
           @apply text-2xl rounded-2xl bg-accent-light p-3 shadow-soft group-hover:bg-accent;
@@ -71,8 +71,9 @@
         .features-text {
           @apply text-muted text-sm font-semibold;
         }
+        /* Reviews box styles */
         .reviews-box {
-          @apply box flex-col gap-3 justify-start items-start p-7 shadow-soft transition duration-150 hover:-translate-y-1 hover:shadow-card;
+          @apply box flex-col gap-3 justify-start items-start p-7 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-card;
         }
         .reviews-photo {
           @apply w-16 h-16 object-cover bg-contain rounded-full bg-accent-light shadow-soft;
@@ -89,7 +90,19 @@
         .reviews-text {
           @apply text-text-body italic text-sm font-semibold;
         }
-
+        /* Footer box styles */
+        .footer-box {
+          @apply flex flex-col gap-3 justify-start items-start;
+        }
+        .footer-title {
+          @apply text-surface text-base font-semibold;
+        }
+        .footer-list {
+          @apply flex flex-col gap-3;
+        }
+        .footer-link {
+          @apply flex items-center justify-start gap-2 text-surface/30 hover:text-surface transition-colors duration-300 text-base;
+        }
         /* Mobile nav */
         .mob-nav {
           @apply absolute top-0 right-0 h-[100vh] w-52 transition-all duration-300 translate-x-full z-10;
@@ -276,7 +289,7 @@
               </div>
               <button
                 type="submit"
-                class="md:col-span-2 flex justify-center items-center text-surface text-xl font-semibold"
+                class="md:col-span-2 text-text-body text-xl font-semibold hover:text-surface transition-colors duration-300"
               >
                 Search
               </button>
@@ -453,7 +466,9 @@
               booking from first search to final checkout.
             </p>
           </div>
-          <div class="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-5">
+          <div
+            class="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
+          >
             <div class="group features-box">
               <p class="features-logo">🧭</p>
               <h3 class="features-title">Expert Curation</h3>
@@ -595,9 +610,77 @@
         </div>
       </div>
     </section>
-    <footer class="border-t border-border/30 py-10 h-20">
+    <footer class="bg-bg-dark border-t border-border/30">
       <div class="container">
-        <p class="text-text-muted text-center">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 pt-20 pb-10">
+          <div class="footer-box">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2.5 group">
+              <div
+                class="w-8 h-8 bg-accent rounded-xl flex items-center justify-center shadow-soft group-hover:scale-110 transition-transform duration-200"
+              >
+                <span class="text-white text-sm font-bold font-heading">D</span>
+              </div>
+              <span class="font-heading text-xl font-bold text-surface">
+                Dream<span class="text-accent">Booking</span>
+              </span>
+            </a>
+            <p class="text-surface/30 text-base">
+              Bringing you closer to your dream destination, one booking at a
+              time.
+            </p>
+          </div>
+          <div class="footer-box">
+            <h2 class="footer-title">Company</h2>
+            <ul class="footer-list">
+              <li><a href="#" class="footer-link">Our Story</a></li>
+              <li><a href="#" class="footer-link">Careers</a></li>
+              <li><a href="#" class="footer-link">Our Team</a></li>
+              <li><a href="#" class="footer-link">Press</a></li>
+            </ul>
+          </div>
+          <div class="footer-box">
+            <h2 class="footer-title">Support</h2>
+            <ul class="footer-list">
+              <li><a href="#" class="footer-link">Help Center</a></li>
+              <li><a href="#" class="footer-link">Contact Us</a></li>
+              <li><a href="#" class="footer-link">FAQ</a></li>
+              <li><a href="#" class="footer-link">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="footer-box">
+            <h2 class="footer-title">Follow Us</h2>
+            <ul class="footer-list">
+              <li>
+                <a href="#" class="footer-link">
+                  <i class="fa-brands fa-instagram"></i>
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">
+                  <i class="fa-brands fa-facebook"></i>
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">
+                  <i class="fa-brands fa-x-twitter"></i>
+                  Twitter (X)
+                </a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">
+                  <i class="fa-brands fa-linkedin"></i>
+                  Linkedin
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p
+          class="text-text-muted text-base text-center border-t border-border/30 py-10"
+        >
           &copy; 2023 Dream Booking. All rights reserved.
         </p>
       </div>
