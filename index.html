@@ -28,7 +28,21 @@
     <style type="text/tailwindcss">
       @layer components {
         .container {
-          @apply max-w-6xl mx-auto px-4;
+          @apply max-w-6xl mx-auto px-14;
+        }
+        .section {
+          @apply py-14;
+        }
+        .section-label {
+          @apply text-accent text-base font-semibold uppercase;
+        }
+        .section-heading {
+          @apply text-text-primary text-center text-[6vw] lg:text-7xl font-black leading-none font-heading;
+        }
+        .card {
+          @apply bg-surface rounded-3xl overflow-hidden shadow-soft
+           transition-all duration-300
+           hover:shadow-card-hover hover:-translate-y-1;
         }
         /* Button styles */
         .btn {
@@ -60,7 +74,7 @@
         }
         /* Features box styles */
         .features-box {
-          @apply box flex-col gap-3 justify-start items-start p-7 shadow-soft transition duration-150 hover:-translate-y-1 hover:shadow-card;
+          @apply box flex-col gap-3 justify-start items-start p-7 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-card;
         }
         .features-logo {
           @apply text-2xl rounded-2xl bg-accent-light p-3 shadow-soft group-hover:bg-accent;
@@ -71,8 +85,9 @@
         .features-text {
           @apply text-muted text-sm font-semibold;
         }
+        /* Reviews box styles */
         .reviews-box {
-          @apply box flex-col gap-3 justify-start items-start p-7 shadow-soft transition duration-150 hover:-translate-y-1 hover:shadow-card;
+          @apply box flex-col gap-3 justify-start items-start p-7 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-card;
         }
         .reviews-photo {
           @apply w-16 h-16 object-cover bg-contain rounded-full bg-accent-light shadow-soft;
@@ -89,7 +104,19 @@
         .reviews-text {
           @apply text-text-body italic text-sm font-semibold;
         }
-
+        /* Footer box styles */
+        .footer-box {
+          @apply flex flex-col gap-3 justify-start items-start;
+        }
+        .footer-title {
+          @apply text-surface text-base font-semibold;
+        }
+        .footer-list {
+          @apply flex flex-col gap-3;
+        }
+        .footer-link {
+          @apply flex items-center justify-start gap-2 text-surface/30 hover:text-surface transition-colors duration-300 text-base;
+        }
         /* Mobile nav */
         .mob-nav {
           @apply absolute top-0 right-0 h-[100vh] w-52 transition-all duration-300 translate-x-full z-10;
@@ -126,7 +153,7 @@
         </a>
 
         <!-- Desktop nav -->
-        <nav class="hidden md:flex items-center gap-1">
+        <nav class="hidden lg:flex items-center gap-1">
           <a href="#home" class="btn-ghost text-sm px-4 py-2">Home</a>
           <a href="#about" class="btn-ghost text-sm px-4 py-2">About</a>
           <a href="#resorts" class="btn-ghost text-sm px-4 py-2">Resorts</a>
@@ -134,15 +161,15 @@
         </nav>
 
         <div class="flex items-center gap-3">
-          <a href="#" class="hidden md:inline-flex btn-ghost text-sm px-4 py-2"
+          <a href="#" class="hidden lg:inline-flex btn-ghost text-sm px-4 py-2"
             >Log in</a
           >
-          <a href="#" class="hidden md:inline-flex btn-primary text-sm"
+          <a href="#" class="hidden lg:inline-flex btn-primary text-sm"
             >Sign up free</a
           >
         </div>
 
-        <div class="mob-actions md:hidden">
+        <div class="mob-actions lg:hidden">
           <!-- Hamburger -->
           <button
             class="btn-humburger w-10 h-10 flex flex-col items-center justify-center gap-1.5 btn-ghost p-0"
@@ -189,7 +216,8 @@
     </header>
 
     <main class="flex-1">
-      <section class="hero bg-bg-base px-6 md:px-16 py-6">
+      <!-- Hero Section -->
+      <section class="section bg-bg-base" id="home">
         <div class="container">
           <div
             class="flex flex-col lg:flex-row justify-center gap-5 items-center"
@@ -200,7 +228,8 @@
               <p
                 class="bg-accent-light rounded-3xl text-accent-dark border border-accent-dark text-base font-semibold py-2 px-4"
               >
-                🏆 Voted #1 Resort Platform 2024
+                <span class="inline-block mr-1 animate-jump">🏆</span> Voted #1
+                Resort Platform 2024
               </p>
               <h1
                 class="text-text-primary w-full text-center lg:text-start text-[10vw] lg:text-7xl font-black leading-none font-heading"
@@ -220,7 +249,7 @@
                 <a href="#" class="btn-outline">How it works </a>
               </div>
             </div>
-            <div class="flex-1 relative p-5 pr-0">
+            <div class="flex-1 relative lg:p-5 lg:pr-0">
               <img
                 src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
                 alt="Luxury hotel exterior"
@@ -276,7 +305,7 @@
               </div>
               <button
                 type="submit"
-                class="md:col-span-2 flex justify-center items-center text-surface text-xl font-semibold"
+                class="md:col-span-2 text-text-body text-xl font-semibold hover:text-surface transition-colors duration-300"
               >
                 Search
               </button>
@@ -284,21 +313,177 @@
           </div>
         </div>
       </section>
-      <section class="features bg-bg-alt px-6 md:px-16 py-28">
+      <!-- End Hero Section -->
+
+      <section class="stats bg-accent">
+        <!-- Stats Bar -->
+        <div class="container grid grid-cols-2 md:grid-cols-5 gap-5 p-14">
+          <div class="flex flex-col items-center gap-1">
+            <p
+              class="text-surface text-4xl lg:text-5xl font-black font-heading cursor-pointer transition duration-300 hover:-translate-y-1"
+            >
+              8K+
+            </p>
+            <p class="text-surface/70 text-sm font-semibold">Resorts listed</p>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <p
+              class="text-surface text-4xl lg:text-5xl font-black font-heading cursor-pointer transition duration-300 hover:-translate-y-1"
+            >
+              6K+
+            </p>
+            <p class="text-surface/70 text-sm font-semibold">Bookings made</p>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <p
+              class="text-surface text-4xl lg:text-5xl font-black font-heading cursor-pointer transition duration-300 hover:-translate-y-1"
+            >
+              2K+
+            </p>
+            <p class="text-surface/70 text-sm font-semibold">Happy guests</p>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <p
+              class="text-white text-4xl lg:text-5xl font-black font-heading cursor-pointer transition duration-150 hover:-translate-y-1 hover:text-red-500"
+            >
+              1.2K
+            </p>
+            <p class="text-white/70 text-sm font-semibold">Sun Burns ☀️</p>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <p
+              class="text-surface text-4xl lg:text-5xl font-black font-heading cursor-pointer transition duration-300 hover:-translate-y-1"
+            >
+              4.9★
+            </p>
+            <p class="text-surface/70 text-sm font-semibold">Average rating</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="section bg-surface" id="about">
+        <div class="container">
+          <!-- About Content -->
+          <div class="flex flex-col lg:flex-row gap-16 items-start">
+            <!-- Right: Text -->
+            <div class="flex-1 flex flex-col gap-8 lg:order-2">
+              <p class="section-label">ABOUT US</p>
+              <h2 class="section-heading text-left">
+                We Make Dream<br />Holidays Happen
+              </h2>
+              <p class="text-text-body text-lg md:text-xl">
+                From secluded island bungalows to vibrant city boutique hotels,
+                our curated platform connects travellers with the world's finest
+                stays — with zero booking fees and instant confirmation.
+              </p>
+
+              <!-- Steps -->
+              <div class="flex flex-col gap-5">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-9 h-9 shrink-0 rounded-full bg-accent-light text-accent font-bold flex items-center justify-center cursor-pointer transition duration-150 hover:-translate-y-1 hover:bg-accent hover:text-white hover:shadow-card"
+                  >
+                    1
+                  </div>
+                  <div>
+                    <h3 class="text-text-primary font-semibold">
+                      Search your destination
+                    </h3>
+                    <p class="text-muted text-sm">
+                      Filter by location, dates, type and budget.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-9 h-9 shrink-0 rounded-full bg-accent-light text-accent font-bold flex items-center justify-center cursor-pointer transition duration-150 hover:-translate-y-1 hover:bg-accent hover:text-white hover:shadow-card"
+                  >
+                    2
+                  </div>
+                  <div>
+                    <h3 class="text-text-primary font-semibold">
+                      Choose your resort
+                    </h3>
+                    <p class="text-muted text-sm">
+                      Browse real photos, reviews and live availability.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-9 h-9 shrink-0 rounded-full bg-accent-light text-accent font-bold flex items-center justify-center cursor-pointer transition duration-150 hover:-translate-y-1 hover:bg-accent hover:text-white hover:shadow-card"
+                  >
+                    3
+                  </div>
+                  <div>
+                    <h3 class="text-text-primary font-semibold">
+                      Book & enjoy
+                    </h3>
+                    <p class="text-muted text-sm">
+                      Instant confirmation. Free cancellation on most stays.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Left: Image -->
+            <div
+              class="flex-1 relative transition duration-150 hover:-translate-y-1 hover:shadow-card overflow-hidden rounded-3xl lg:order-1"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
+                alt="Luxury resort"
+                class="rounded-3xl w-full h-auto aspect-[4/3] object-cover shadow-soft"
+              />
+              <!-- Floating badge -->
+              <div
+                class="absolute bottom-5 left-5 bg-surface inline-flex items-center gap-3 rounded-2xl px-5 py-3 shadow-card"
+              >
+                <div class="flex -space-x-2">
+                  <img
+                    src="https://i.pravatar.cc/40?img=1"
+                    class="w-8 h-8 rounded-full border-2 border-white"
+                    alt="traveller"
+                  />
+                  <img
+                    src="https://i.pravatar.cc/40?img=2"
+                    class="w-8 h-8 rounded-full border-2 border-white"
+                    alt="traveller"
+                  />
+                  <img
+                    src="https://i.pravatar.cc/40?img=3"
+                    class="w-8 h-8 rounded-full border-2 border-white"
+                    alt="traveller"
+                  />
+                </div>
+                <div>
+                  <p class="text-text-primary text-sm font-bold">
+                    2,400+ travellers
+                  </p>
+                  <p class="text-muted text-xs">loved us this month ❤️</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End About Section -->
+
+      <!-- Features Section -->
+      <section class="section bg-bg-alt" id="features">
         <div class="container">
           <div class="flex flex-col justify-center gap-5 items-center">
-            <p class="text-accent text-base font-semibold">WHY US</p>
-            <h2
-              class="text-text-primary w-full text-center text-[6vw] lg:text-7xl font-black leading-none font-heading"
-            >
-              The Dream Booking Difference
-            </h2>
+            <p class="section-label">WHY US</p>
+            <h2 class="section-heading">The Dream Booking Difference</h2>
             <p class="text-text-body text-xl md:text-2xl text-center max-w-2xl">
               We go beyond listing - we curate, verify, and support every
               booking from first search to final checkout.
             </p>
           </div>
-          <div class="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-5">
+          <div
+            class="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
+          >
             <div class="group features-box">
               <p class="features-logo">🧭</p>
               <h3 class="features-title">Expert Curation</h3>
@@ -331,15 +516,175 @@
           </div>
         </div>
       </section>
-      <section class="reviews bg-bg-alt px-6 md:px-16 py-28">
+      <!-- End Features Section -->
+
+      <!-- Resorts Section -->
+      <section class="section bg-surface" id="resorts">
+        <div class="container">
+          <div class="flex items-end justify-between mb-12 flex-wrap gap-4">
+            <div>
+              <span class="section-label">Top Picks</span>
+              <h2 class="section-heading">Trending Right Now</h2>
+            </div>
+            <a
+              href="#"
+              class="text-sm font-semibold text-accent transition-colors hover:text-accent-dark hover:underline underline-offset-4"
+            >
+              View all resorts →
+            </a>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+            <!-- Card 1 -->
+            <div class="card border border-border/30 group">
+              <div class="relative overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&q=80"
+                  alt="Maldives overwater bungalow"
+                  class="w-full h-52 object-cover rounded-t-3xl rounded-tr-3xl transition-transform duration-500 group-hover:scale-105"
+                />
+                <span
+                  class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm text-text-primary text-xs font-bold px-3 py-1.5 rounded-full"
+                  >⭐ 4.9</span
+                >
+                <span
+                  class="absolute top-4 left-4 bg-accent text-white text-xs font-bold px-3 py-1.5 rounded-full"
+                  >Popular</span
+                >
+              </div>
+              <div class="p-5">
+                <p class="text-xs text-muted mb-1">📍 Maldives, Indian Ocean</p>
+                <h3 class="font-semibold text-text-primary mb-3">
+                  Overwater Paradise Villa
+                </h3>
+                <div class="flex flex-wrap gap-2 text-xs text-text-body mb-5">
+                  <span class="bg-bg-alt px-2.5 py-1 rounded-lg"
+                    >🛏 2 Rooms</span
+                  >
+                  <span class="bg-bg-alt px-2.5 py-1 rounded-lg"
+                    >📐 1,200 sq ft</span
+                  >
+                  <span class="bg-bg-alt px-2.5 py-1 rounded-lg"
+                    >🌊 Ocean view</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span
+                      class="font-heading text-2xl font-bold text-text-primary"
+                      >$480</span
+                    >
+                    <span class="text-xs text-muted">/night</span>
+                  </div>
+                  <button class="btn-primary text-sm px-5 py-2.5">
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card border border-border/30 group">
+              <div class="relative overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=500&q=80"
+                  alt="Bali tropical villa"
+                  class="w-full h-52 object-cover rounded-t-3xl rounded-tr-3xl transition-transform duration-500 group-hover:scale-105"
+                />
+                <span
+                  class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm text-text-primary text-xs font-bold px-3 py-1.5 rounded-full"
+                  >⭐ 4.8</span
+                >
+              </div>
+              <div class="p-5">
+                <p class="text-xs text-muted mb-1">📍 Bali, Indonesia</p>
+                <h3 class="font-semibold text-text-primary mb-3">
+                  Jungle Infinity Pool Villa
+                </h3>
+                <div class="flex flex-wrap gap-2 text-xs text-text-body mb-5">
+                  <span class="bg-bg-alt px-2.5 py-1 rounded-lg"
+                    >🛏 4 Rooms</span
+                  >
+                  <span class="bg-bg-alt px-2.5 py-1 rounded-lg"
+                    >📐 2,800 sq ft</span
+                  >
+                  <span class="bg-bg-alt px-2.5 py-1 rounded-lg"
+                    >🌿 Private pool</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span
+                      class="font-heading text-2xl font-bold text-text-primary"
+                      >$320</span
+                    >
+                    <span class="text-xs text-muted">/night</span>
+                  </div>
+                  <button class="btn-primary text-sm px-5 py-2.5">
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card border border-border/30 group">
+              <div class="relative overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=500&q=80"
+                  alt="Santorini cliffside hotel"
+                  class="w-full h-52 object-cover rounded-t-3xl rounded-tr-3xl transition-transform duration-500 group-hover:scale-105"
+                />
+                <span
+                  class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm text-text-primary text-xs font-bold px-3 py-1.5 rounded-full"
+                  >⭐ 5.0</span
+                >
+                <span
+                  class="absolute top-4 left-4 bg-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full"
+                  >New</span
+                >
+              </div>
+              <div class="p-5">
+                <p class="text-xs text-muted mb-1">📍 Santorini, Greece</p>
+                <h3 class="font-semibold text-text-primary mb-3">
+                  Caldera Cliffside Retreat
+                </h3>
+                <div class="flex flex-wrap gap-2 text-xs text-text-body mb-5">
+                  <span class="bg-bg-alt px-2.5 py-1 rounded-lg"
+                    >🛏 3 Rooms</span
+                  >
+                  <span class="bg-bg-alt px-2.5 py-1 rounded-lg"
+                    >📐 1,900 sq ft</span
+                  >
+                  <span class="bg-bg-alt px-2.5 py-1 rounded-lg"
+                    >🌅 Sea view</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span
+                      class="font-heading text-2xl font-bold text-text-primary"
+                      >$650</span
+                    >
+                    <span class="text-xs text-muted">/night</span>
+                  </div>
+                  <button class="btn-primary text-sm px-5 py-2.5">
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Resorts Section -->
+
+      <!-- Reviews Section -->
+      <section class="section bg-bg-alt" id="reviews">
         <div class="container">
           <div class="flex flex-col justify-center gap-5 items-center">
-            <p class="text-accent text-base font-semibold">REVIEWS</p>
-            <h2
-              class="text-text-primary w-full text-center text-[7vw] lg:text-7xl font-black leading-none font-heading"
-            >
-              Travellers Love Us
-            </h2>
+            <p class="section-label">REVIEWS</p>
+            <h2 class="section-heading">Travellers Love Us</h2>
           </div>
           <div class="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5">
             <div class="reviews-box">
@@ -397,11 +742,123 @@
           </div>
         </div>
       </section>
+      <!-- End Reviews Section -->
+
+      <!-- Contact Section -->
+      <section class="section bg-bg-base" id="contact">
+        <div class="container">
+          <div class="flex flex-col items-center gap-6 text-center">
+            <p class="section-label">GET IN TOUCH</p>
+            <h2 class="section-heading">
+              Have Questions?<br />We'd Love to
+              <span class="text-accent">Help</span>
+            </h2>
+            <p class="text-text-body text-lg md:text-xl max-w-md">
+              Our support team is online 24/7 — real people, no bots.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 mt-4 w-full max-w-lg">
+              <div class="search-box flex-1">
+                <label class="search-logo">✉️</label>
+                <input
+                  type="email"
+                  placeholder="Your email address..."
+                  class="search-input"
+                />
+              </div>
+              <button
+                class="btn-primary text-sm transition duration-150 hover:-translate-y-1 hover:shadow-card"
+              >
+                Get in touch
+              </button>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 mt-2">
+              <p class="text-text-body text-sm font-semibold">
+                ✅ Chat live with support
+              </p>
+              <p class="text-text-body text-sm font-semibold">
+                ✅ Browse our FAQ
+              </p>
+              <p class="text-text-body text-sm font-semibold">
+                ✅ Arrive by Hyperloop
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Contact Section -->
     </main>
 
-    <footer class="border-t border-border/30 py-10 h-20">
+    <footer class="bg-bg-dark border-t border-border/30">
       <div class="container">
-        <p class="text-text-muted text-center">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 pt-20 pb-10">
+          <div class="footer-box">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2.5 group">
+              <div
+                class="w-8 h-8 bg-accent rounded-xl flex items-center justify-center shadow-soft group-hover:scale-110 transition-transform duration-200"
+              >
+                <span class="text-white text-sm font-bold font-heading">D</span>
+              </div>
+              <span class="font-heading text-xl font-bold text-surface">
+                Dream<span class="text-accent">Booking</span>
+              </span>
+            </a>
+            <p class="text-surface/30 text-base">
+              Bringing you closer to your dream destination, one booking at a
+              time.
+            </p>
+          </div>
+          <div class="footer-box">
+            <h2 class="footer-title">Company</h2>
+            <ul class="footer-list">
+              <li><a href="#" class="footer-link">Our Story</a></li>
+              <li><a href="#" class="footer-link">Careers</a></li>
+              <li><a href="#" class="footer-link">Our Team</a></li>
+              <li><a href="#" class="footer-link">Press</a></li>
+            </ul>
+          </div>
+          <div class="footer-box">
+            <h2 class="footer-title">Support</h2>
+            <ul class="footer-list">
+              <li><a href="#" class="footer-link">Help Center</a></li>
+              <li><a href="#" class="footer-link">Contact Us</a></li>
+              <li><a href="#" class="footer-link">FAQ</a></li>
+              <li><a href="#" class="footer-link">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="footer-box">
+            <h2 class="footer-title">Follow Us</h2>
+            <ul class="footer-list">
+              <li>
+                <a href="#" class="footer-link">
+                  <i class="fa-brands fa-instagram"></i>
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">
+                  <i class="fa-brands fa-facebook"></i>
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">
+                  <i class="fa-brands fa-x-twitter"></i>
+                  Twitter (X)
+                </a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">
+                  <i class="fa-brands fa-linkedin"></i>
+                  Linkedin
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p
+          class="text-text-muted text-base text-center border-t border-border/30 py-10"
+        >
           &copy; 2023 Dream Booking. All rights reserved.
         </p>
       </div>
