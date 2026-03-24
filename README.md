@@ -8,7 +8,7 @@ This project was built as part of a frontend practice to strengthen skills in **
 ## 🌐 Live Demo
 
 🔗 **Website:**
-Click [here](https://github.com/hashemi1997ali/dream-booking) to explore the project.
+Click [here](https://hashemi1997ali.github.io/dream-booking) to view the live demo.
 
 ---
 
