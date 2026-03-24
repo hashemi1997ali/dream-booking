@@ -7,15 +7,15 @@ This project was built as part of a frontend practice to strengthen skills in **
 
 ## 🌐 Live Demo
 
-🔗 Website:  
-https://github.com/hashemi1997ali/dream-booking
+🔗 **Website:**
+Click [here](https://github.com/hashemi1997ali/dream-booking) to explore the project.
 
 ---
 
 ## 📋 Project Management
 
-🧩 Trello Board:  
-https://trello.com/b/JuLZ6Zgr
+🧩 **Trello Board:**
+View tasks and progress [here](https://trello.com/b/JuLZ6Zgr).
 
 ---
 
