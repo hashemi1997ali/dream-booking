@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,7 +31,7 @@
           @apply max-w-6xl mx-auto px-14;
         }
         .section {
-          @apply py-14;
+          @apply py-14 scroll-mt-[73px] lg:scroll-mt-[85px];
         }
         .section-label {
           @apply text-accent text-base font-semibold uppercase;
@@ -47,10 +47,10 @@
         /* Button styles */
         .btn {
           @apply inline-flex items-center justify-center gap-2
-            font-semibold text-xl rounded-2xl px-8 py-4 transition-colors duration-300;
+            font-semibold text-xl rounded-2xl px-8 py-4 transition-colors duration-300 hover:shadow-soft;
         }
         .btn-primary {
-          @apply btn text-surface shadow-soft bg-accent hover:bg-accent-dark hover:border-accent-dark;
+          @apply btn text-surface bg-accent hover:bg-accent-dark hover:border-accent-dark;
         }
         .btn-outline {
           @apply btn text-accent border border-accent hover:bg-accent-dark hover:text-white hover:border-accent-dark;
@@ -64,7 +64,7 @@
           @apply flex rounded-2xl bg-surface;
         }
         .search-box {
-          @apply box flex-row gap-2 justify-center items-center p-4;
+          @apply box flex-row gap-2 justify-center items-center p-4 shadow-soft;
         }
         .search-input {
           @apply w-full text-base focus:outline-none bg-inherit text-text-primary placeholder-muted;
@@ -118,17 +118,33 @@
           @apply flex items-center justify-start gap-2 text-surface/30 hover:text-surface transition-colors duration-300 text-base;
         }
         /* Mobile nav */
+        .mob-actions {
+          @apply relative;
+        }
+
         .mob-nav {
-          @apply absolute top-0 right-0 h-[100vh] w-52 transition-all duration-300 translate-x-full z-10;
+          @apply fixed top-0 right-0 h-screen
+          w-0 overflow-hidden whitespace-nowrap
+          bg-bg-base border-l border-border/30
+          opacity-0 invisible
+          transition-[width,opacity] duration-300
+          z-50;
         }
-        .btn-humburger:focus + .mob-nav {
-          @apply translate-x-0;
+
+        .mob-actions:focus-within .mob-nav {
+          @apply w-72 opacity-100 visible;
         }
+
         .mob-actions::before {
-          @apply content-[''] absolute top-0 left-0 w-full h-[100vh] bg-black/50 pointer-events-none transition-all duration-300 z-[1] translate-x-full;
+          content: "";
+          @apply fixed top-0 right-0 w-screen h-screen bg-black/50
+          opacity-0 invisible
+          transition-opacity duration-300
+          z-40;
         }
-        .mob-actions:has(.btn-humburger:focus)::before {
-          @apply translate-x-0;
+
+        .mob-actions:focus-within::before {
+          @apply opacity-100 visible;
         }
       }
     </style>
@@ -187,7 +203,7 @@
 
           <!-- Mobile nav -->
           <nav
-            class="mob-nav flex flex-col gap-1 px-6 pb-5 pt-2 bg-bg-base border-t border-border/30"
+            class="mob-nav flex flex-col gap-1 px-6 pb-5 pt-6 bg-bg-base border-l border-border/30"
           >
             <a
               href="#home"
@@ -249,22 +265,24 @@
                 <a href="#" class="btn-outline">How it works </a>
               </div>
             </div>
-            <div class="flex-1 relative lg:p-5 lg:pr-0">
-              <img
-                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
-                alt="Luxury hotel exterior"
-                class="rounded-3xl w-full h-auto aspect-[4/3] lg:aspect-square object-cover shadow-soft"
-              />
-              <div
-                class="absolute bottom-0 left-0 bg-surface inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 shadow-card"
-              >
-                <p class="text-5xl">🏖️</p>
-                <p class="text-text-primary text-base font-semibold">
-                  500+ Destinations<br /><span
-                    class="text-sm font-light text-muted"
-                    >Worldwide resorts</span
-                  >
-                </p>
+            <div class="flex-1">
+              <div class="relative p-5 lg:pr-0 lg:pt-0">
+                <img
+                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
+                  alt="Luxury hotel exterior"
+                  class="rounded-3xl w-fit h-auto aspect-[4/3] lg:aspect-square object-cover shadow-soft"
+                />
+                <div
+                  class="absolute bottom-0 left-0 bg-surface inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 shadow-card"
+                >
+                  <p class="text-5xl">🏖️</p>
+                  <p class="text-text-primary text-base font-semibold">
+                    500+ Destinations<br /><span
+                      class="text-sm font-light text-muted"
+                      >Worldwide resorts</span
+                    >
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -315,9 +333,10 @@
       </section>
       <!-- End Hero Section -->
 
-      <section class="stats bg-accent">
+      <!-- Stats Section -->
+      <section class="section bg-accent" id="stats">
         <!-- Stats Bar -->
-        <div class="container grid grid-cols-2 md:grid-cols-5 gap-5 p-14">
+        <div class="container grid grid-cols-2 md:grid-cols-5 gap-5">
           <div class="flex flex-col items-center gap-1">
             <p
               class="text-surface text-4xl lg:text-5xl font-black font-heading cursor-pointer transition duration-300 hover:-translate-y-1"
@@ -360,6 +379,7 @@
           </div>
         </div>
       </section>
+      <!-- End Stats Section -->
 
       <!-- About Section -->
       <section class="section bg-surface" id="about">
@@ -533,22 +553,21 @@
               View all resorts →
             </a>
           </div>
-
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
             <!-- Card 1 -->
-            <div class="card border border-border/30 group">
-              <div class="relative overflow-hidden">
+            <div class="card border border-border/30 group overflow-hidden">
+              <div class="relative overflow-hidden rounded-t-[inherit]">
                 <img
                   src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&q=80"
                   alt="Maldives overwater bungalow"
-                  class="w-full h-52 object-cover rounded-t-3xl rounded-tr-3xl transition-transform duration-500 group-hover:scale-105"
+                  class="block w-full h-52 object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
                 />
                 <span
                   class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm text-text-primary text-xs font-bold px-3 py-1.5 rounded-full"
                   >⭐ 4.9</span
                 >
                 <span
-                  class="absolute top-4 left-4 bg-accent text-white text-xs font-bold px-3 py-1.5 rounded-full"
+                  class="absolute top-4 left-4 bg-accent text-surface text-xs font-bold px-3 py-1.5 rounded-full"
                   >Popular</span
                 >
               </div>
@@ -584,12 +603,12 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="card border border-border/30 group">
-              <div class="relative overflow-hidden">
+            <div class="card border border-border/30 group overflow-hidden">
+              <div class="relative overflow-hidden rounded-t-[inherit]">
                 <img
                   src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=500&q=80"
                   alt="Bali tropical villa"
-                  class="w-full h-52 object-cover rounded-t-3xl rounded-tr-3xl transition-transform duration-500 group-hover:scale-105"
+                  class="block w-full h-52 object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
                 />
                 <span
                   class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm text-text-primary text-xs font-bold px-3 py-1.5 rounded-full"
@@ -628,19 +647,19 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="card border border-border/30 group">
-              <div class="relative overflow-hidden">
+            <div class="card border border-border/30 group overflow-hidden">
+              <div class="relative overflow-hidden rounded-t-[inherit]">
                 <img
                   src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=500&q=80"
                   alt="Santorini cliffside hotel"
-                  class="w-full h-52 object-cover rounded-t-3xl rounded-tr-3xl transition-transform duration-500 group-hover:scale-105"
+                  class="block w-full h-52 object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
                 />
                 <span
                   class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm text-text-primary text-xs font-bold px-3 py-1.5 rounded-full"
                   >⭐ 5.0</span
                 >
                 <span
-                  class="absolute top-4 left-4 bg-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full"
+                  class="absolute top-4 left-4 bg-teal-600 text-surface text-xs font-bold px-3 py-1.5 rounded-full"
                   >New</span
                 >
               </div>
@@ -758,18 +777,16 @@
             </p>
             <div class="flex flex-col sm:flex-row gap-3 mt-4 w-full max-w-lg">
               <div class="search-box flex-1">
-                <label class="search-logo">✉️</label>
+                <label for="email" class="search-logo">✉️</label>
                 <input
                   type="email"
+                  name="email"
+                  id="email"
                   placeholder="Your email address..."
                   class="search-input"
                 />
               </div>
-              <button
-                class="btn-primary text-sm transition duration-150 hover:-translate-y-1 hover:shadow-card"
-              >
-                Get in touch
-              </button>
+              <button class="btn-primary text-sm">Get in touch</button>
             </div>
             <div class="flex flex-wrap justify-center gap-6 mt-2">
               <p class="text-text-body text-sm font-semibold">
